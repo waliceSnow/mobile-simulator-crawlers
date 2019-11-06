@@ -1,0 +1,79 @@
+package com.crawler.wechatcrawler;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+
+import com.crawler.wechatcrawler.struct.ApplicationInfor;
+
+/**
+ * 
+ * @author wal_ice
+ * @serial 线程主要负责与定时相关的操作
+ */
+
+public class TimerThread extends Thread {
+    final static private long sSleepPeriod = 10000;
+    //final static private String sLogFile = "/storage/sdcard0/tencent/MobileQQ/2172119450/qqcrawler.log";
+    final static private String sLogFile = "/sdcard/tencent/MobileQQ/log/qqcrawler.log";
+    final static public String sThreadEndNum = "54214e349224b7b4621eb1af83849768";
+    
+    public void run() {
+        ApplicationInfor appInfor = ApplicationInfor.getInstance();
+        File logFile = new File(sLogFile);
+        FileWriter logFileWriter = null;
+        boolean isThreadEnd = false;
+        if (!logFile.exists()) {
+            try {
+                logFile.createNewFile();
+            } catch (IOException e) {
+                System.out.println("create " + sLogFile + " failed.");
+                return ;
+            }
+        }
+        
+        try {
+            logFileWriter = new FileWriter(logFile, true);
+        } catch (IOException e1) {
+            System.out.println("filewriter exception, msg=" + e1.getMessage());
+            return ;
+        }
+        
+        while (true) {
+            String logStr = "";
+            boolean hasLog = false;
+            while (null != (logStr = appInfor.logMsgQueue.poll())) {
+                logStr = logStr.trim();
+                if (sThreadEndNum.equals(logStr)) {
+                    isThreadEnd = true;
+                    break;
+                }
+                try {
+                    logFileWriter.write(logStr);
+                    logFileWriter.write("\n");
+                } catch (IOException e) {
+                    System.out.println("write exception, msg=" + e.getMessage());
+                }
+                hasLog = true;
+            }
+            if (isThreadEnd) {
+                break;
+            }
+            
+            try {
+                if (hasLog) {
+                    logFileWriter.flush();
+                }
+                Thread.sleep(sSleepPeriod);
+            } catch (InterruptedException | IOException e) {
+                System.out.println("flush & Sleep exception, msg=" + e.getMessage());
+            }
+        }
+        
+        try {
+            logFileWriter.close();
+        } catch (IOException e) {
+            System.out.println("close log file " + sLogFile + " close failed.");
+        }
+    }
+}

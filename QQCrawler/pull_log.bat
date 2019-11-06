@@ -1,0 +1,1 @@
+adb pull -p -a /sdcard/tencent/MobileQQ/log C:\Users\wal_ice\Documents\JavaWP\QQCrawler\logs

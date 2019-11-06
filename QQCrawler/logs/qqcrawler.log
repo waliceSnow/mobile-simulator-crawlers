@@ -1,0 +1,66 @@
+INFO 2016-04-27 14:03:20 cc4cd315-adc0-416c-8036-5f7ab3f93ee2 qqNum=270576514 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=2
+INFO 2016-04-27 15:51:40 dc1f1f16-2871-4146-a8eb-05b9888f1e45 qqNum=81472116 imageCounter=3 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-04-28 00:51:26 aaedf261-2bcb-4130-b7c2-fd32a5780c52 qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=1
+INFO 2016-04-28 00:53:01 8bb85e29-7c9e-49e2-9aab-3f28bda628e1 qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=1
+INFO 2016-04-28 07:53:28 d2d3b75e-a277-4b56-ab31-60b0bb50fe8c qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-04-28 07:53:48 fa53d3a3-9f40-4d3c-8262-ad16c4a12aef qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=1
+INFO 2016-04-28 23:50:21 d582ab76-ba36-455f-bd3c-6b09955f896c qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-04-28 23:50:48 4f6e8ad8-9fee-4280-a42a-90944e5c57a8 qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=1
+WARNING 2016-04-29 01:09:22 3ac67b7d-5bd8-435c-b12b-cdea77852395 message list dispatch: not found the connector-menu button.
+WARNING 2016-04-29 01:09:22 0f8a91cd-80a5-4cbb-9838-5c0d50b1cc28 Next action is null.
+ERROR 2016-04-29 01:10:38 e3107002-269b-4962-b914-b3fcfcfc7631 user tweet process: QQ number not found.
+WARNING 2016-04-29 11:00:10 4b562adf-fbbc-40bd-9fa5-57aeed8742e2 user tweet process: invalid content, content=
+INFO 2016-04-29 11:00:10 e03cd16d-d1aa-4e3c-8afb-10b8faa70c4d qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=0
+WARNING 2016-04-29 22:27:46 9453fcd8-e1e5-4d2e-a471-df465fa46f58 user tweet process: invalid content, content=0216d7debf97db2d5bee6c488613f6bf
+INFO 2016-04-29 22:27:46 3980d719-064e-42ba-9645-688e112ec23a qqNum=270576514 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=0
+WARNING 2016-04-29 22:33:14 44dfc244-0a24-4040-9973-124e96b42fb9 message list dispatch: not found the connector-menu button.
+WARNING 2016-04-29 22:33:14 15fcda1e-8fcc-4d57-96be-bfe81d47fff1 Next action is null.
+WARNING 2016-04-29 23:26:58 63f66fea-8d4b-428e-b3e4-06afebfeb6a3 user tweet process: invalid content, content=0216d7debf97db2d5bee6c488613f6bf
+INFO 2016-04-29 23:26:58 0f3451fc-338f-487f-86d9-731d5c7676db qqNum=270576514 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-04-30 00:07:10 d11bd885-32e6-49b1-afa8-84d3bd1fa83e qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+ERROR 2016-04-30 00:09:20 342d8f16-2cf5-4074-8938-f16b27c8a137 user tweet process: get duration exception, msg=Invalid long: "1'2"
+INFO 2016-04-30 00:09:21 bfbeb555-a289-40db-97d3-b3e85b45e77e qqNum=315284565 imageCounter=0 audioCounter=1 urlCounter=0 contentCounter=0
+INFO 2016-04-30 00:11:41 49052c98-85b0-4efb-8df1-30c73b1f1481 qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=1
+INFO 2016-04-30 00:17:43 e7d35648-a3e5-4757-bc3f-5e85219450f5 qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-04-30 00:20:41 4030d45f-fcba-4b0c-b717-e70c38cc3895 qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=1
+WARNING 2016-04-30 01:18:26 4baa34f4-e453-4e19-917f-3206b8f5f32c message list dispatch: not found the connector-menu button.
+WARNING 2016-04-30 01:18:26 d2fcd4f4-bd2e-47e8-a823-62717750a8e2 Next action is null.
+INFO 2016-04-30 05:08:20 b9f0a11a-b992-455d-b865-5c73a93004c3 qqNum=582564943 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+WARNING 2016-04-30 05:08:47 1ae64cbb-ff42-4ac6-b4c6-f4d707fd79b9 autios length not 1, length = 0
+INFO 2016-04-30 05:08:52 625739d1-5b51-40aa-a4e5-abc8c0a6a22d qqNum=582564943 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=0
+WARNING 2016-04-30 05:08:52 1065d84c-94f2-4a55-901f-1792c370eec5 delete audios, length > 0, length = 1
+INFO 2016-04-30 07:49:04 204420d1-ca50-40c6-a407-614d9e308a80 qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-04-30 07:49:21 c5fab8f2-842b-4b54-a16c-2ccf9b94ce3a qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=1
+INFO 2016-04-30 23:43:23 5397961d-a0f8-46f4-981c-34816cf25931 qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-04-30 23:43:54 f7701538-1f85-41bf-a82d-e9ea6c8db017 qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=1
+INFO 2016-05-01 00:38:21 005077df-9e89-4e5c-8f1a-dc742ab8ddee qqNum=582564943 imageCounter=2 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-05-01 00:38:52 c863ebd6-ef3a-4143-b515-07ea553c8633 qqNum=582564943 imageCounter=0 audioCounter=1 urlCounter=0 contentCounter=0
+INFO 2016-05-01 00:39:43 61833536-410f-4e33-9adb-45d93987aaa6 qqNum=582564943 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0
+INFO 2016-05-01 00:40:29 4b9e5478-15fb-4e7e-81ef-6bfb34755c7d qqNum=582564943 imageCounter=0 audioCounter=1 urlCounter=0 contentCounter=0
+WARNING 2016-05-03 09:49:23 b3f09e0b-ee6c-4bee-b91c-0e8995bb45bd user tweet process: invalid content, content=0216d7debf97db2d5bee6c488613f6bf
+INFO 2016-05-03 09:49:23 72c0e81a-67fa-4447-8427-3537dd0d1a7c qqNum=270576514 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=0
+WARNING 2016-05-03 11:04:06 51833947-f1e8-458c-8b95-89d0f37e4c9e user tweet process: invalid content, content=0216d7debf97db2d5bee6c488613f6bf
+INFO 2016-05-03 11:04:06 a94a1790-3e40-414c-a3c4-ffd391128321 qqNum=270576514 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=0
+WARNING 2016-05-03 13:43:37 c2e97c64-dfbb-4785-a47f-81cfe947e185 user tweet process: invalid content, content=
+INFO 2016-05-03 13:43:37 2862ce11-ee2d-4d87-8cee-91fd6c596537 qqNum=315284565 imageCounter=0 audioCounter=0 urlCounter=0 contentCounter=0
+ERROR 2016-05-03 23:57:33 156b2957-cd4d-43d8-b315-bd1c734eeaf5 user tweet process: get the img exception, msg=UiSelector[CHILD=UiSelector[CHILD=UiSelector[RESOURCE_ID=com.tencent.mobileqq:id/pic], RESOURCE_ID=com.tencent.mobileqq:id/chat_item_content_layout], CONTAINER=UiSelector[CLASS=android.widget.AbsListView], PATTERN=UiSelector[INSTANCE=0, PATTERN=UiSelector[CLASS=android.widget.RelativeLayout, RESOURCE_ID=com.tencent.mobileqq:id/name]]]
+ERROR 2016-05-03 23:57:45 48326867-0a85-430d-b7df-a2d9fa57214c user tweet process: get the img exception, msg=UiSelector[CHILD=UiSelector[CHILD=UiSelector[RESOURCE_ID=com.tencent.mobileqq:id/pic], RESOURCE_ID=com.tencent.mobileqq:id/chat_item_content_layout], CONTAINER=UiSelector[CLASS=android.widget.AbsListView], PATTERN=UiSelector[INSTANCE=0, PATTERN=UiSelector[CLASS=android.widget.RelativeLayout, RESOURCE_ID=com.tencent.mobileqq:id/name]]]
+ERROR 2016-05-03 23:57:57 bbc0893b-5d6f-4cd1-a6c0-17e4292edbaa user tweet process: get the img exception, msg=UiSelector[CHILD=UiSelector[CHILD=UiSelector[RESOURCE_ID=com.tencent.mobileqq:id/pic], RESOURCE_ID=com.tencent.mobileqq:id/chat_item_content_layout], CONTAINER=UiSelector[CLASS=android.widget.AbsListView], PATTERN=UiSelector[INSTANCE=0, PATTERN=UiSelector[CLASS=android.widget.RelativeLayout, RESOURCE_ID=com.tencent.mobileqq:id/name]]]
+WARNING 2016-05-03 23:58:14 5c35992c-8b16-4483-a2a7-fe0cb64ff7fb user tweet process: invalid content, content=*有人问：“你的上司有缺点吗？” 
+“有！多的像天上的星星” 
+“你的上司优点多吗？” 
+“少！少的就像天上的太阳！”..
+“那你为什么还跟着他”
+“因为太阳一出来，
+星星就看不见了！” 
+献给
+吵不离，骂不散的团队
+多理解，多包容！
+谁都有错的时候！
+我们合作的是他人的优点，
+我们学习的是他人的长处！
+理解，包容是一种智慧。
+珍惜才会拥有、感恩才会天长地久!
+  ————致团队！[玫瑰]
+ERROR 2016-05-03 23:58:14 88596aa6-d1e5-47be-9bc1-2cc759a6bc39 user tweet process: picture not found!!
+INFO 2016-05-03 23:58:14 4a80b980-64d8-4d06-b86c-959a22a9d64c qqNum=315284565 imageCounter=1 audioCounter=0 urlCounter=0 contentCounter=0

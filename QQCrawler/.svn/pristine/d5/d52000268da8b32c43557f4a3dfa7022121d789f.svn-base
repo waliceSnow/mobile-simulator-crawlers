@@ -1,0 +1,206 @@
+package com.crawler.qqcrawler.action;
+
+import com.android.uiautomator.core.UiDevice;
+import com.android.uiautomator.core.UiObject;
+import com.android.uiautomator.core.UiObjectNotFoundException;
+import com.android.uiautomator.core.UiSelector;
+import com.crawler.qqcrawler.net.QQMessagePoster;
+import com.crawler.qqcrawler.struct.ApplicationInfor;
+
+public class AddNewFriendsAction extends Action {
+
+    AddNewFriendsAction(ActionMngr actionMngr) {
+        super(actionMngr);
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public Action play() {
+        UiDevice uiDevice = UiDevice.getInstance();
+        UiObject menuButton = new UiObject(new UiSelector().className("android.widget.TabWidget").childSelector(
+                new UiSelector().className("android.widget.RelativeLayout").instance(1).childSelector(
+                        new UiSelector().className("android.widget.ImageView").instance(1)
+        )));
+        
+        // avoid the current page not the main page.
+        int tryTime = 0;
+        for (; tryTime < BACK_RETRY_TIME; tryTime++) {
+            if (menuButton.exists()) {
+                break;
+            }
+            uiDevice.pressBack();
+        }
+        if (tryTime >= BACK_RETRY_TIME) {
+            ApplicationInfor.warningLogging("add friend: not found the connector-menu button.");
+            return null;
+        }
+        try {
+            menuButton.click();
+            UiObject newFriendButton = new UiObject(new UiSelector().description("新朋友 按钮"));
+            if (newFriendButton.exists()) {
+                newFriendButton.click();
+                this.addNewFriends();
+            }
+        } catch (UiObjectNotFoundException e) {
+            ApplicationInfor.warningLogging("find the new friend exception, msg=" + e.getMessage());
+        }
+        
+        uiDevice.pressBack();
+
+        return this._actionMngr.getMsglistDispatchAction();
+    }
+
+    private void addNewFriends() {
+        UiSelector addButtonSelector = new UiSelector().className("android.widget.Button").text("添加");
+        UiSelector nickNameSelector = addButtonSelector.fromParent(new UiSelector().resourceId("com.tencent.mobileqq:id/nickname"));
+        UiObject addButton = new UiObject(addButtonSelector);
+        UiObject uiNickName = new UiObject(nickNameSelector);
+        String nickName = "";
+        
+        boolean isAddUser = false;
+        while (addButton.exists()) {
+            if (uiNickName.exists()) {
+                try {
+                    nickName = uiNickName.getText().replace('\n', '\0');
+                } catch (UiObjectNotFoundException e) {
+                    ApplicationInfor.warningLogging("add friend: get nickname failed. msg=" + e.getMessage());
+                }
+            } else {
+                ApplicationInfor.warningLogging("add friend: nickname not found!");
+            }
+            // get each person.
+            try {
+                uiNickName.click();
+                this.addNewFriend(nickName);
+            } catch (UiObjectNotFoundException  e) {
+                ApplicationInfor.warningLogging("add friend: click adder button exception, msg=" + e.getMessage());
+                break;
+            }
+            
+            addButton = new UiObject(addButtonSelector);
+            uiNickName = new UiObject(nickNameSelector);
+            nickName = "";
+            isAddUser = true;
+        }
+        
+        if (isAddUser) {
+            // clear all users
+            UiObject rightTopButton = new UiObject(new UiSelector().resourceId("com.tencent.mobileqq:id/ivTitleBtnRightImage"));
+            if (rightTopButton.exists()) {
+                try {
+                    rightTopButton.click();
+                    UiObject clearAllUserButton = new UiObject(new UiSelector().text("清空好友申请"));
+                    if (clearAllUserButton.exists()) {
+                        clearAllUserButton.click();
+                    } else {
+                        ApplicationInfor.warningLogging("add friend: clear-all-user button not found.");
+                    }
+                } catch (UiObjectNotFoundException e) {
+                    ApplicationInfor.warningLogging("add friend: clear all user excpetion, msg=" + e.getMessage());
+                }
+            } else {
+                ApplicationInfor.warningLogging("add friend: right-top button not found!");
+            }
+        }
+    }
+    
+    private void addNewFriend(String nickName) {
+        UiDevice uiDevice = UiDevice.getInstance();
+        UiObject uiUserInfo = new UiObject(new UiSelector().className("android.widget.LinearLayout").resourceId("com.tencent.mobileqq:id/name"));
+        String strQQNum = "";
+        
+        if (!uiUserInfo.exists()) {
+            ApplicationInfor.warningLogging("add friend: user-info line not found.");
+            uiDevice.pressBack();
+            return;
+        }
+        try {
+            if (!uiUserInfo.click()) {
+                ApplicationInfor.warningLogging("add friend: click user-info line failed.");
+                uiDevice.pressBack();
+                return ;
+            }
+        } catch (UiObjectNotFoundException e) {
+            ApplicationInfor.warningLogging("add friend: open the user information detail page exception, msg=" + e.getMessage());
+            uiDevice.pressBack();
+            return ;
+        }
+        
+        // in the detail page.
+        try {
+            UiObject uiQQNum = new UiObject(new UiSelector().text("帐号信息").fromParent(
+                    new UiSelector().className("android.widget.LinearLayout").childSelector(
+                            new UiSelector().resourceId("com.tencent.mobileqq:id/info")
+                    )
+            ));
+            if (!uiQQNum.exists()) {
+                Thread.sleep(2000);
+                uiDevice.swipe(340, 740, 340, 400, 10);
+            }
+            if (!uiQQNum.exists()) {
+                ApplicationInfor.warningLogging("add friend: qq number object not found.");
+                uiDevice.pressBack();
+                return ;
+            }
+            strQQNum = uiQQNum.getText().trim();
+            if (!strQQNum.matches("^[0-9]+$")) {
+                ApplicationInfor.warningLogging("add friend: qq number not like: [0-9]+, qqNum=" + strQQNum);
+                uiDevice.pressBack();
+                return ;
+            }
+        } catch (UiObjectNotFoundException | InterruptedException e) {
+            ApplicationInfor.warningLogging("add friend: found the user information exception, msg=" + e.getMessage());
+            uiDevice.pressBack();
+            return ;
+        } finally {
+            uiDevice.pressBack();
+        }
+            
+        // back to last page.
+        try {
+            UiObject addFriendButton = new UiObject(new UiSelector().text("加为好友"));
+            if (!addFriendButton.exists()) {
+                ApplicationInfor.warningLogging("add-friend button not found.");
+                return ;
+            }
+            if (!addFriendButton.click()) {
+                ApplicationInfor.warningLogging("add-friend button click failed.");
+                return ;
+            }
+        } catch (UiObjectNotFoundException e) {
+            ApplicationInfor.warningLogging("add friend: found the user information exception, msg=" + e.getMessage());
+        }
+        // waiting for pop-up window.
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            ApplicationInfor.warningLogging("sleep 1000ms exception, msg=" + e.getMessage());
+            uiDevice.pressBack();
+            uiDevice.pressBack();
+            return ;
+        }
+        // set the remarks
+        UiObject uiRemarkName = new UiObject(new UiSelector().className("android.widget.EditText"));
+        if (uiRemarkName.exists()) {
+            try {
+                uiRemarkName.setText(strQQNum);
+                UiObject uiFinishButton = new UiObject(new UiSelector().text("完成"));
+                if (!uiFinishButton.exists()) {
+                    ApplicationInfor.warningLogging("add friend: finish button not found.");
+                    uiDevice.pressBack();
+                } else {
+                    uiFinishButton.click();
+                }
+            } catch (UiObjectNotFoundException e) {
+                ApplicationInfor.warningLogging("add friend: set the qq number to remark name exception, msg=" + e.getMessage());
+                uiDevice.pressBack();
+            }
+        } else {
+            ApplicationInfor.warningLogging("add friend: remark name text not found!");
+        }
+        
+        // end: in the new friends page.
+        QQMessagePoster.postUser(nickName, strQQNum);
+    }
+
+}

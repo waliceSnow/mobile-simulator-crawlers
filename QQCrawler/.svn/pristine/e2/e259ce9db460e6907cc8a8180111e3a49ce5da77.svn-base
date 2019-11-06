@@ -1,0 +1,40 @@
+package com.crawler.qqcrawler.struct;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+
+public class ApplicationInfor {
+    public BlockingQueue<String> logMsgQueue;
+    public ViewsStatus viewStatus;
+    static private ApplicationInfor _applicationInfor;
+    static private SimpleDateFormat _logDateFormat;
+    
+    private ApplicationInfor() {
+        logMsgQueue = new LinkedBlockingDeque<String>();
+        _logDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    }
+   
+    static public ApplicationInfor getInstance() {
+        if (null == _applicationInfor) {
+            _applicationInfor = new ApplicationInfor();
+        }
+        
+        return _applicationInfor;
+    }
+    
+    static public void errorLogging(String logStr) {
+        if (null == _applicationInfor) {
+            _applicationInfor = new ApplicationInfor();
+        }
+        _applicationInfor.logMsgQueue.offer("ERROR " + _logDateFormat.format(Calendar.getInstance().getTime()) + " " + logStr);
+    }
+    
+    static public void warningLogging(String logStr) {
+        if (null == _applicationInfor) {
+            _applicationInfor = new ApplicationInfor();
+        }
+        _applicationInfor.logMsgQueue.offer("WARNING " + _logDateFormat.format(Calendar.getInstance().getTime()) + " " + logStr);
+    }
+}
